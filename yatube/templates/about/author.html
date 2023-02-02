@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}    
+  <div class="container py-5">
+    <h1>Привет, меня зовут Эмин. <br>
+    Я автор проекта - <span style="color:red">Ya</span>tube!</h1><br>
+    <article>
+      <p>
+        <img src="{% static 'img/photo.jpg' %}" width="300" class="d-inline-block align-top" alt=""><br>
+        <a href="https://github.com/Galichskyeyu"><h4><img src="{% static 'img/git_icon.png' %}" width="50"><span style="color:black">Github</h3></a>        
+      </p>
+    </article>
+    <hr>
+  </div>
+{% endblock %}

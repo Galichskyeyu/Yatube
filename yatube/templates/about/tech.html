@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Технологии{% endblock %}
+{% block content %}    
+  <div class="container py-5">
+    <div class="row">
+      <h1>Мой стек технологий</h1>
+      <aside class="col-12 col-md-3">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><img src="{% static 'img/python.png' %}" width="50">
+            Python
+          </li>
+          <li class="list-group-item"><img src="{% static 'img/sqlite.jpg' %}" width="50">
+            SQLite
+          </li>
+        </ul>
+      </aside>  
+      <hr>
+    </div>
+  </div>
+{% endblock %}
