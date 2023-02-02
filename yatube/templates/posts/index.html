@@ -21,7 +21,8 @@
           <img class="card-img my-2" src="{{ im.url }}">
         {% endthumbnail %}
         <p>{{ post.text }}</p>
-        {% if post.group %}
+        <a href="{% url 'posts:post_detail' post.pk %}">Подробная информация</a><br>
+        {% if post.group %}   
           <a href="{% url 'posts:group_list' post.group.slug %}">Открыть записи из группы "{{ post.group.title }}"</a>
         {% endif %}
         {% if not forloop.last %}

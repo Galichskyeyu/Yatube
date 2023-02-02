@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load user_filters %}
 {% block title %}
   {% if is_edit %}
     Редактировать запись
@@ -6,8 +7,8 @@
     Добавить запись
   {% endif %}
 {% endblock %}
-{% load user_filters %}
 {% block content %}
+{% include 'posts/includes/switcher.html' %}     
   <div class="container py-5">
     <h1>
       {% if is_edit %}
@@ -34,7 +35,7 @@
       {% if action_url %}
         action="{% url action_url %}"
       {% endif %} enctype="multipart/form-data">
-      {% csrf_token %}    
+      {% csrf_token %}
       <div class="form-group row my-3 p-3">
         <label for="id_text">
           Введите текст

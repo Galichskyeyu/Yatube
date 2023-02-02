@@ -12,6 +12,10 @@ class Group(models.Model):
         blank=True,
     )
 
+    class Meta:
+        verbose_name = 'Группа'
+        verbose_name_plural = 'Группы'
+
     def __str__(self):
         return self.title
 
@@ -26,7 +30,7 @@ class Post(models.Model):
         User,
         on_delete=models.CASCADE,
         related_name='posts',
-        verbose_name='Автор'
+        verbose_name='Автор',
     )
     group = models.ForeignKey(
         Group,
@@ -60,8 +64,12 @@ class Comment(models.Model):
     text = models.TextField()
     created = models.DateTimeField('date published', auto_now_add=True)
 
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+
     def __str__(self):
-        return self.text
+        return self.text[:15]
 
 
 class Follow(models.Model):
