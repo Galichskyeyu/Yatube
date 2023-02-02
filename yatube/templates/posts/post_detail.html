@@ -1,4 +1,4 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load thumbnail %}
 {% block title %}
   Пост {{ post.text|truncatechars:30 }}
@@ -32,10 +32,10 @@
           </li>
         </ul>
       </aside>
-      {% thumbnail post.image "960x339" crop="center" upscale=True as im %}
-        <img class="card-img my-2" src="{{ im.url }}">
-      {% endthumbnail %}
       <article class="col-12 col-md-9">
+        {% thumbnail post.image "960x339" crop="center" upscale=True as im %}
+          <img class="card-img my-2" src="{{ im.url }}">
+        {% endthumbnail %}
         <p>
           {{ post.text }}
         </p>
@@ -44,7 +44,7 @@
             Редактировать запись
           </a>
         {% endif %}
-        {% include 'posts/includes/add_comment.html' %}
+        {% include 'posts/includes/add_comment.html'%}
       </article>
     </div> 
   </div> 
