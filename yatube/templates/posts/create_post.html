@@ -36,25 +36,24 @@
         action="{% url action_url %}"
       {% endif %} enctype="multipart/form-data">
       {% csrf_token %}
-      <div class="form-group row my-3 p-3">
-        <label for="id_text">
-          Введите текст
-          <span class="required text-danger">*</span>
-        </label>
-        {{ form.text }}
-        <small id="id_text-help" class="form-text text-muted">
-          Текст нового поста
-        </small>
-      </div>
-      <div class="form-group row my-3 p-3">
-        <label for="id_group">
-          Выберите группу
-        </label>
-        {{ form.group }}
-        <small id="id_group-help" class="form-text text-muted">
-          Группа, к которой будет относиться пост
-        </small>
-      </div>
+      {% for field in form %}
+        <div class="form-group row my-3 p-3" >
+          <label for="{{ field.id_for_label }}">
+            {{ field.label }}
+            {% if field.field.required %}
+              <span class="required text-danger">*</span>
+            {% endif %}
+          </label>
+          <div>
+            {{ field|addclass:'form-control' }}
+            {% if field.help_text %}
+              <small id="{{ field.id_for_label }}-help" class="form-text text-muted">
+                {{ field.help_text|safe }}
+              </small>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
       <div class="d-flex justify-content-end">
         <button type="submit" class="btn btn-primary" >
           {% if is_edit %}
